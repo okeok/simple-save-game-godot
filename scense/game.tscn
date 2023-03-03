@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/game.gd" type="Script" id=1]
+[ext_resource path="res://scense/ui.tscn" type="PackedScene" id=2]
+
+[node name="game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="get_res" type="HBoxContainer" parent="."]
+margin_left = 32.0
+margin_top = 274.0
+margin_right = 322.0
+margin_bottom = 314.0
+custom_constants/separation = 24
+
+[node name="get_wood" type="Button" parent="get_res"]
+margin_right = 65.0
+margin_bottom = 40.0
+text = "Get tree"
+
+[node name="get_stone" type="Button" parent="get_res"]
+margin_left = 89.0
+margin_right = 164.0
+margin_bottom = 40.0
+text = "Get stone"
+
+[node name="get_gold" type="Button" parent="get_res"]
+margin_left = 188.0
+margin_right = 254.0
+margin_bottom = 40.0
+text = "Get gold"
+
+[node name="ui" parent="." instance=ExtResource( 2 )]
+
+[connection signal="pressed" from="get_res/get_wood" to="." method="_on_get_wood_pressed"]
+[connection signal="pressed" from="get_res/get_stone" to="." method="_on_get_stone_pressed"]
+[connection signal="pressed" from="get_res/get_gold" to="." method="_on_get_gold_pressed"]
